@@ -1,0 +1,21 @@
+{
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 100,
+  "bracketSpacing": true,
+  "endOfLine": "crlf",
+  "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "strict",
+  "jsxSingleQuote": true,
+  "quoteProps": "as-needed", 
+  "overrides": [ 
+    {
+      "files": "*.tsx", 
+      "options": {
+        "parser": "typescript" 
+      }
+    }
+  ]
+}

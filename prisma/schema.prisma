@@ -90,7 +90,7 @@ model Basket {
 
   products BasketProduct[]
 
-  token       Int
+  token       String
   totalAmount Int @default(0)
 
   createdAt DateTime @default(now())

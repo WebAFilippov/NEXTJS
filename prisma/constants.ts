@@ -14,7 +14,7 @@ export const categories = [
   {
     name: 'Напитки',
   },
-];
+]
 
 export const ingredients = [
   {
@@ -107,7 +107,7 @@ export const ingredients = [
     imageUrl:
       'https://cdn.dodostatic.net/static/Img/Ingredients/b2f3a5d5afe44516a93cfc0d2ee60088.png',
   },
-].map((obj, index) => ({ id: index + 1, ...obj }));
+].map((obj, index) => ({ id: index + 1, ...obj }))
 
 export const products = [
   {
@@ -195,4 +195,4 @@ export const products = [
     imageUrl: 'https://media.dodostatic.net/image/r:292x292/11EE7D61B0C26A3F85D97A78FEEE00AD.webp',
     categoryId: 5,
   },
-];
+]

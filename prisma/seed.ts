@@ -1,18 +1,26 @@
-import { hashSync } from "bcrypt"
-import { prisma } from "./prisma-client"
-import { categories, ingredients, products } from "./constants"
-import { Prisma } from "@prisma/client"
+import { hashSync } from 'bcrypt'
+import { prisma } from './prisma-client'
+import { categories, ingredients, products } from './constants'
+import { Prisma } from '@prisma/client'
 
 const randomDecimalNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) * 10 + min * 10) / 10
 }
 
-const generateProductVariant = ({ productId, size, type }: { productId: number, size?: number, type?: number }) => {
+const generateProductVariant = ({
+  productId,
+  size,
+  type,
+}: {
+  productId: number
+  size?: number
+  type?: number
+}) => {
   return {
     productId,
     price: randomDecimalNumber(190, 600),
     size,
-    type
+    type,
   } as Prisma.ProductVariantUncheckedCreateInput
 }
 
@@ -20,65 +28,68 @@ const up = async () => {
   await prisma.user.createMany({
     data: [
       {
-        fullName: "Alex",
-        email: "user@a.com",
-        password: hashSync("11111111", 10),
-        role: "USER",
+        fullName: 'Alex',
+        email: 'user@a.com',
+        password: hashSync('11111111', 10),
+        role: 'USER',
         verified: new Date(),
       },
       {
-        fullName: "Admin",
-        email: "admin@a.com",
-        password: hashSync("11111111", 10),
-        role: "ADMIN",
+        fullName: 'Admin',
+        email: 'admin@a.com',
+        password: hashSync('11111111', 10),
+        role: 'ADMIN',
         verified: new Date(),
-      }
-    ]
+      },
+    ],
   })
 
   await prisma.category.createMany({
-    data: categories
+    data: categories,
   })
 
   await prisma.ingredient.createMany({
-    data: ingredients
+    data: ingredients,
   })
 
   await prisma.product.createMany({
-    data: products
+    data: products,
   })
 
   const pizza_1 = await prisma.product.create({
     data: {
-      name: "Сырная 🌱👶",
-      imageUrl: "https://media.dodostatic.net/image/r:292x292/11EE7D610D2925109AB2E1C92CC5383C.avif",
+      name: 'Сырная 🌱👶',
+      imageUrl:
+        'https://media.dodostatic.net/image/r:292x292/11EE7D610D2925109AB2E1C92CC5383C.avif',
       categoryId: 1,
       ingredients: {
-        connect: ingredients.slice(0, 5)
-      }
-    }
+        connect: ingredients.slice(0, 5),
+      },
+    },
   })
 
   const pizza_2 = await prisma.product.create({
     data: {
-      name: "Пепперони фреш",
-      imageUrl: "https://media.dodostatic.net/image/r:292x292/11EE7D612FC7B7FCA5BE822752BEE1E5.avif",
+      name: 'Пепперони фреш',
+      imageUrl:
+        'https://media.dodostatic.net/image/r:292x292/11EE7D612FC7B7FCA5BE822752BEE1E5.avif',
       categoryId: 1,
       ingredients: {
-        connect: ingredients.slice(5, 10)
-      }
-    }
+        connect: ingredients.slice(5, 10),
+      },
+    },
   })
 
   const pizza_3 = await prisma.product.create({
     data: {
-      name: "Двойной цыпленок 👶",
-      imageUrl: "https://media.dodostatic.net/image/r:292x292/11EE7D614CBE0530B7234B6D7A6E5F8E.avif",
+      name: 'Двойной цыпленок 👶',
+      imageUrl:
+        'https://media.dodostatic.net/image/r:292x292/11EE7D614CBE0530B7234B6D7A6E5F8E.avif',
       categoryId: 1,
       ingredients: {
-        connect: ingredients.slice(5, 20)
-      }
-    }
+        connect: ingredients.slice(5, 20),
+      },
+    },
   })
 
   await prisma.productVariant.createMany({
@@ -119,34 +130,33 @@ const up = async () => {
       generateProductVariant({ productId: 15 }),
       generateProductVariant({ productId: 16 }),
       generateProductVariant({ productId: 17 }),
-    ]
+    ],
   })
 
   await prisma.basket.createMany({
     data: [
       {
         userId: 1,
-        token: "111111",
+        token: '111111',
         totalAmount: 0,
       },
       {
         userId: 2,
-        token: "222222",
+        token: '222222',
         totalAmount: 0,
-      }
-    ]
+      },
+    ],
   })
 
   await prisma.basketProduct.create({
-    data:
-    {
+    data: {
       basketId: 1,
       productVariantId: 1,
       quantity: 2,
       ingredients: {
-        connect: [{ id: 1 }, { id: 2 }, { id: 3 }]
-      }
-    }
+        connect: [{ id: 1 }, { id: 2 }, { id: 3 }],
+      },
+    },
   })
 }
 

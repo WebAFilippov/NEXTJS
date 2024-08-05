@@ -1,27 +1,29 @@
 'use client'
 import React, { useState } from 'react'
 import { FilterChecboxProps, FilterCheckbox } from './filter-checkbox'
-import { Input } from '../ui'
+import { Input, Skeleton } from '../ui'
 
 interface Props {
   title: string
+  name: string
   items: FilterChecboxProps[]
-  defaultItems: FilterChecboxProps[]
   limit?: number
   searchInputValue?: string
-  defaultValue?: string[]
-  onChange?: (checked: string[]) => void
+  onChange?: (id: string) => void
+  selected: Set<string>
+  loading: boolean
   className?: string
 }
 
 export const FilterCheckboxGroup: React.FC<Props> = ({
   title,
+  name,
   items,
-  defaultItems,
-  defaultValue,
   limit = 5,
   searchInputValue = 'Поиск...',
   onChange,
+  selected,
+  loading,
   className,
 }) => {
   const [showAll, setShowAll] = useState(false)
@@ -31,10 +33,24 @@ export const FilterCheckboxGroup: React.FC<Props> = ({
     ? items.filter((item) =>
         item.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()),
       )
-    : defaultItems.slice(0, limit)
+    : items.slice(0, limit)
 
   const onChangeSearchInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value)
+  }
+
+  if (loading) {
+    return (
+      <div className={className}>
+        <p className='font-bold my-3'>{title}</p>
+
+        {...Array(limit)
+          .fill(0)
+          .map((_, index) => <Skeleton key={index} className='h-6 mb-4 rounded-[8px]' />)}
+
+        <Skeleton className='w-28 h-6 mb-4 rounded-[8px]' />
+      </div>
+    )
   }
 
   return (
@@ -56,11 +72,11 @@ export const FilterCheckboxGroup: React.FC<Props> = ({
           <FilterCheckbox
             text={item.text}
             value={item.value}
-            name={item.name}
-            checked={item.checked}
+            name={name}
             key={index}
             endAdornment={item.endAdornment}
-            onCheckedChange={(id) => console.log(id)}
+            checked={selected.has(item.value)}
+            onCheckedChange={() => onChange?.(item.value)}
           />
         ))}
       </div>

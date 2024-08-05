@@ -22,13 +22,20 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
   useClickAway(refInput, () => setFocused(false))
 
   useDebounce(
-    async () => {
-      const response = await Api.products.search(searchValue)
-      setProducts(response)
+    () => {
+      Api.products
+        .search(searchValue)
+        .then((response) => setProducts(response))
+        .catch((e) => console.log(e))
     },
     350,
     [searchValue],
   )
+
+  const onClickItem = () => {
+    setFocused(false)
+    setSearchValue('')
+  }
 
   return (
     <>
@@ -42,6 +49,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
           type='text'
           placeholder='Поиск...'
           className='w-full h-full pl-11 pr-3 rounded-2xl bg-gray-100 outline-none'
+          value={searchValue}
           onFocus={() => setFocused(true)}
           onChange={(e) => setSearchValue(e.target.value)}
         />
@@ -58,6 +66,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
                 href={`/product/${product.id}`}
                 key={product.id}
                 className='flex items-center gap-3 hover:bg-primary/10 px-2'
+                onClick={onClickItem}
               >
                 <img src={product.imageUrl} alt={product.name} className='size-8 rounded-sm' />
                 <span>{product.name}</span>

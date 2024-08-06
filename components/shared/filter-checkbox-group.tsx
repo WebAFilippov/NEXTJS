@@ -11,7 +11,7 @@ interface Props {
   searchInputValue?: string
   onChange?: (id: string) => void
   selected: Set<string>
-  loading: boolean
+  loading?: boolean
   className?: string
 }
 

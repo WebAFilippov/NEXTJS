@@ -4,7 +4,7 @@ import { Title } from './title'
 import { Input, RangeSlider } from '../ui'
 import { FilterCheckboxGroup } from './filter-checkbox-group'
 import { useFilterIndgredients } from '@/hooks/use-filter-ingredients'
-import { useFilters, useQueryFilters } from '@/hooks'
+import { useCheckboxFilter, useRangeFilter } from '@/hooks'
 
 interface Props {
   className?: string
@@ -14,20 +14,22 @@ export const Filters: React.FC<Props> = ({ className }) => {
   const { items: filterIngredients, loading } = useFilterIndgredients()
   const items = filterIngredients.map(({ name, id }) => ({ text: name, value: String(id) }))
 
-  const filters = useFilters()
-  useQueryFilters(filters)
+  const { querySet: selectedTypes, toggle: toggleTypes } = useCheckboxFilter('types')
+  const { querySet: selectedSizes, toggle: toggleSizes } = useCheckboxFilter('sizes')
+  const { querySet: selectedIngredients, toggle: toggleIngredients } =
+    useCheckboxFilter('ingredients')
+  const { range, setRange } = useRangeFilter()
 
   return (
     <div className={className}>
       <Title text='Фильтрация' size='sm' className='font-bold mb-5' />
 
       {/* Чекбоксы типов */}
-
       <FilterCheckboxGroup
         title='Тип теста:'
         name='types'
-        onChange={filters.toggleTypes}
-        selected={filters.selectedTypes}
+        onChange={toggleTypes}
+        selected={selectedTypes}
         items={[
           { text: 'Тонкое', value: '1' },
           { text: 'Традиционное', value: '2' },
@@ -35,12 +37,11 @@ export const Filters: React.FC<Props> = ({ className }) => {
       />
 
       {/* Чекбоксы размеров */}
-
       <FilterCheckboxGroup
         title='Размеры:'
         name='sizes'
-        onChange={filters.toggleSizes}
-        selected={filters.selectedSizes}
+        onChange={toggleSizes}
+        selected={selectedSizes}
         items={[
           { text: '20 см', value: '20' },
           { text: '30 см', value: '30' },
@@ -58,10 +59,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
             min={0}
             max={1000}
             step={10}
-            value={filters.prices.priceFrom}
-            onChange={(e) =>
-              filters.setPrices({ ...filters.prices, priceFrom: Number(e.target.value) })
-            }
+            value={range.priceFrom}
+            onChange={(e) => setRange({ ...range, priceFrom: Number(e.target.value) })}
           />
           <Input
             type='number'
@@ -69,18 +68,18 @@ export const Filters: React.FC<Props> = ({ className }) => {
             min={100}
             max={1000}
             step={10}
-            value={filters.prices.priceTo}
-            onChange={(e) =>
-              filters.setPrices({ ...filters.prices, priceTo: Number(e.target.value) })
-            }
+            value={range.priceTo}
+            onChange={(e) => setRange({ ...range, priceTo: Number(e.target.value) })}
           />
         </div>
         <RangeSlider
           min={0}
           max={1000}
           step={10}
-          value={[filters.prices.priceFrom, filters.prices.priceTo]}
-          onValueChange={filters.updatePrice}
+          value={[range.priceFrom, range.priceTo]}
+          onValueChange={(price: number[]) => {
+            setRange({ priceFrom: price[0], priceTo: price[1] })
+          }}
         />
       </div>
 
@@ -92,8 +91,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
         name='ingredients'
         limit={6}
         loading={loading}
-        onChange={filters.toggleIngredients}
-        selected={filters.selectedIngredients}
+        onChange={toggleIngredients}
+        selected={selectedIngredients}
         items={items}
       />
     </div>

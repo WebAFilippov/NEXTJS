@@ -1,5 +1,6 @@
 import { Container, Filters, Title, TopBar } from '@/components/shared'
 import { ProductGroupList } from '@/components/shared/product-group-list'
+import { Suspense } from 'react'
 
 export default function Page() {
   return (
@@ -14,7 +15,9 @@ export default function Page() {
         <Container className='flex gap-[60px] pb-14 mt-9'>
           {/* Filter */}
           <div className='w-[250px]'>
-            <Filters />
+            <Suspense>
+              <Filters />
+            </Suspense>
           </div>
 
           {/* List Goods */}

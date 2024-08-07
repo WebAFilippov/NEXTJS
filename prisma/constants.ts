@@ -1,9 +1,9 @@
 export const categories = [
   {
-    name: 'Завтрак',
+    name: 'Пиццы',
   },
   {
-    name: 'Пиццы',
+    name: 'Завтрак',
   },
   {
     name: 'Закуски',
@@ -12,19 +12,7 @@ export const categories = [
     name: 'Коктейли',
   },
   {
-    name: 'Кофе',
-  },
-  {
     name: 'Напитки',
-  },
-  {
-    name: 'Десерты',
-  },
-  {
-    name: 'Соусы',
-  },
-  {
-    name: 'Другие товары',
   },
 ]
 

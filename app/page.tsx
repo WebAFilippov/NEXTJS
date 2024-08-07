@@ -1,8 +1,19 @@
 import { Container, Filters, Title, TopBar } from '@/components/shared'
 import { ProductGroupList } from '@/components/shared/product-group-list'
+import { prisma } from '@/prisma/prisma-client'
 import { Suspense } from 'react'
+export default async function Page() {
+  const categories = await prisma.category.findMany({
+    include: {
+      products: {
+        include: {
+          variants: true,
+          ingredients: true,
+        },
+      },
+    },
+  })
 
-export default function Page() {
   return (
     <>
       <div>
@@ -10,7 +21,7 @@ export default function Page() {
           <Title text='Все пиццы' size='lg' className='font-extrabold' />
         </Container>
 
-        <TopBar />
+        <TopBar categories={categories.filter((category) => category.products.length > 0)} />
 
         <Container className='flex gap-[60px] pb-14 mt-9'>
           {/* Filter */}
@@ -20,78 +31,20 @@ export default function Page() {
             </Suspense>
           </div>
 
-          {/* List Goods */}
+          {/* Список продуктов */}
           <data className='flex-1'>
             <div className='flex flex-col gap-16'>
-              <ProductGroupList
-                title='Завтрак'
-                categoryId={1}
-                products={[
-                  {
-                    id: 0,
-                    name: 'Сырная 🌱👶',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE7D6108E3A1C9952CD3A7F39A4D02.avif',
-                    variant: [{ price: 500 }],
-                  },
-                  {
-                    id: 1,
-                    name: 'Сырная 🌱👶',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE7D6108E3A1C9952CD3A7F39A4D02.avif',
-                    variant: [{ price: 500 }],
-                  },
-                  {
-                    id: 2,
-                    name: 'Сырная 🌱👶',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE7D6108E3A1C9952CD3A7F39A4D02.avif',
-                    variant: [{ price: 500 }],
-                  },
-                  {
-                    id: 3,
-                    name: 'Сырная 🌱👶',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE7D6108E3A1C9952CD3A7F39A4D02.avif',
-                    variant: [{ price: 500 }],
-                  },
-                ]}
-              />
-
-              <ProductGroupList
-                title='Пиццы'
-                categoryId={2}
-                products={[
-                  {
-                    id: 0,
-                    name: 'Омлет с беконом',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE796FF0059B799A17F57A9E64C725.avif',
-                    variant: [{ price: 500 }],
-                  },
-                  {
-                    id: 1,
-                    name: 'Омлет с беконом',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE796FF0059B799A17F57A9E64C725.avif',
-                    variant: [{ price: 500 }],
-                  },
-                  {
-                    id: 2,
-                    name: 'Омлет с беконом',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE796FF0059B799A17F57A9E64C725.avif',
-                    variant: [{ price: 500 }],
-                  },
-                  {
-                    id: 3,
-                    name: 'Омлет с беконом',
-                    imageUrl:
-                      'https://media.dodostatic.net/image/r:292x292/11EE796FF0059B799A17F57A9E64C725.avif',
-                    variant: [{ price: 500 }],
-                  },
-                ]}
-              />
+              {categories.map(
+                (category) =>
+                  category.products.length > 0 && (
+                    <ProductGroupList
+                      key={category.id}
+                      title={category.name}
+                      categoryId={category.id}
+                      products={category.products}
+                    />
+                  ),
+              )}
             </div>
           </data>
         </Container>

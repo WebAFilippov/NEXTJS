@@ -1,18 +1,16 @@
-import { create } from "zustand"
-import { devtools } from "zustand/middleware"
+import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 
 const initialState = {
   activeId: 1,
 }
 
 export const useCategoryStore = create<typeof initialState>()(
-  devtools(
-    () => initialState,
-    {
-      name: "categoryStore",
-    })
+  devtools(() => initialState, {
+    name: 'categoryStore',
+  }),
 )
-
+// экшен переключения категории
 export const setActiveId = (id: number) => {
   useCategoryStore.setState({ activeId: id })
 }

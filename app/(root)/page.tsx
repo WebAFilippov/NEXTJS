@@ -2,6 +2,7 @@ import { Container, Filters, Title, TopBar } from '@/components/shared'
 import { ProductGroupList } from '@/components/shared/product-group-list'
 import { prisma } from '@/prisma/prisma-client'
 import { Suspense } from 'react'
+
 export default async function Page() {
   const categories = await prisma.category.findMany({
     include: {

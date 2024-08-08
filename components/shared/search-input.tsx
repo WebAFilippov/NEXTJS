@@ -1,6 +1,6 @@
 'use client'
-import { cn } from '@/lib/utils'
-import { Api } from '@/services/api-client'
+import { cn } from '@/shared/lib/utils'
+import { Api } from '@/shared/services/api-client'
 import { Product } from '@prisma/client'
 import { Search } from 'lucide-react'
 import Link from 'next/link'
@@ -21,6 +21,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
   // кроме самого компонента, сбрасывать состояние фокуса в false.
   useClickAway(refInput, () => setFocused(false))
 
+  // api/products/search - поиск продуктов в хедере search
   useDebounce(
     () => {
       Api.products

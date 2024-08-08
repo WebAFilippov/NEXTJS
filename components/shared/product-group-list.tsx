@@ -2,19 +2,14 @@
 
 import React, { useEffect, useRef } from 'react'
 import { ProductCard, Title } from '@/components/shared'
-import { cn } from '@/lib/utils'
+import { cn } from '@/shared/lib/utils'
 import { useIntersection } from 'react-use'
-import { setActiveId } from '@/store/category'
-import { Ingredient, Product, ProductVariant } from '@prisma/client'
-
-export type ProductWithRelations = Product & {
-  variants: ProductVariant[]
-  ingredients: Ingredient[]
-}
+import { setActiveId } from '@/shared/store/category'
+import { ProductWithVariantsIngredients } from '@/@types'
 
 interface Props {
   title: string
-  products: ProductWithRelations[]
+  products: ProductWithVariantsIngredients[]
   categoryId: number
   className?: string
   listClassName?: string

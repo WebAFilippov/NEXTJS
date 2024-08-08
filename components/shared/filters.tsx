@@ -3,14 +3,15 @@ import React from 'react'
 import { Title } from './title'
 import { Input, RangeSlider } from '../ui'
 import { FilterCheckboxGroup } from './filter-checkbox-group'
-import { useFilterIndgredients } from '@/hooks/use-filter-ingredients'
-import { useCheckboxFilter, useRangeFilter } from '@/hooks'
+import { useFilterIndgredients } from '@/shared/hooks/use-filter-ingredients'
+import { useCheckboxFilter, useRangeFilter } from '@/shared/hooks'
 
 interface Props {
   className?: string
 }
 
 export const Filters: React.FC<Props> = ({ className }) => {
+  // api/ingredients - список ингредиентов
   const { items: filterIngredients, loading } = useFilterIndgredients()
   const items = filterIngredients.map(({ name, id }) => ({ text: name, value: String(id) }))
 

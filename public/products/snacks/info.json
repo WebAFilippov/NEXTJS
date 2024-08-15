@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Дэнвич ветчина и сыр",
+    "description": "Поджаристая чиабатта и знакомое сочетание ветчины, цыпленка, моцареллы со свежими томатами, соусом ранч и чесноком",
+    "types": [
+      {
+        "type": null,
+        "size": null,
+        "value": null,
+        "price": 229,
+        "elements": {
+          "energy": 267.9,
+          "protein": 11,
+          "fats": 11.2,
+          "carbohydrate": 28.9,
+          "weight": 210
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE796FF0059B799A17F57A9E64C725.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE796FF0059B799A17F57A9E64C725.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE796FF0059B799A17F57A9E64C725.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE796FF0059B799A17F57A9E64C725.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Супермясной Додстер",
+    "description": "Горячая закуска с цыпленком, моцареллой, митболами, острыми колбасками чоризо и соусом бургер в тонкой пшеничной лепешке",
+    "types": [
+      {
+        "type": null,
+        "size": null,
+        "value": null,
+        "price": 209,
+        "elements": {
+          "energy": 289.3,
+          "protein": 15.3,
+          "fats": 13.8,
+          "carbohydrate": 24,
+          "weight": 160
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE797022F9AD72AC34E1B01DC6AEBA.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE797022F9AD72AC34E1B01DC6AEBA.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE797022F9AD72AC34E1B01DC6AEBA.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE797022F9AD72AC34E1B01DC6AEBA.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

@@ -9,19 +9,14 @@ import { ProductWithVariantsIngredients } from '@/@types'
 
 interface Props {
   title: string
-  products: ProductWithVariantsIngredients[]
+  products?: ProductWithVariantsIngredients[]
   categoryId: number
   className?: string
   listClassName?: string
 }
 
-export const ProductGroupList: React.FC<Props> = ({
-  title,
-  products,
-  categoryId,
-  className,
-  listClassName,
-}) => {
+export const ProductGroupList: React.FC<Props> = ({ title, products, categoryId, className }) => {
+  // Отслеживания положения экрана и отображение active в category Topbar
   const intersectionRef = useRef(null)
   const intersection = useIntersection(intersectionRef, {
     threshold: 0.4,
@@ -34,21 +29,22 @@ export const ProductGroupList: React.FC<Props> = ({
   }, [intersection?.isIntersecting, categoryId])
 
   return (
-    <div className={className} ref={intersectionRef} id={title}>
-      <Title text={title} size='lg' className='font-extrabold mb-5' />
+    <section className={cn('flex flex-col gap-10', className)} ref={intersectionRef} id={title}>
+      <Title text={title} size='lg' className='font-extrabold w-full' />
 
-      <div className={cn('grid grid-cols-3 gap-[50px]', listClassName)}>
-        {products.map((product) => (
+      <div className='grid grid-cols-3 gap-14'>
+        {products?.map((product) => (
           <ProductCard
             key={product.id}
-            id={product.id}
+            slug={product.slug}
             name={product.name}
-            imageUrl={product.imageUrl}
-            price={product.variants[0].price}
-            ingredients={product.ingredients}
+            price={product.variants[0]?.price}
+            description={product.description}
+            imageUrl={product.variants[0]?.imageUrl}
+            ingredients={product.defaultIngredients}
           />
         ))}
       </div>
-    </div>
+    </section>
   )
 }

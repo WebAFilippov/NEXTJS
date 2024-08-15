@@ -9,7 +9,7 @@ export default async function Page() {
       products: {
         include: {
           variants: true,
-          ingredients: true,
+          defaultIngredients: true,
         },
       },
     },
@@ -24,7 +24,7 @@ export default async function Page() {
 
         <TopBar categories={categories.filter((category) => category.products.length > 0)} />
 
-        <Container className='flex gap-[60px] pb-14 mt-9'>
+        <Container className='flex gap-10 pb-14 mt-9'>
           {/* Filter */}
           <div className='w-[250px]'>
             <Suspense>
@@ -34,7 +34,7 @@ export default async function Page() {
 
           {/* Список продуктов */}
           <data className='flex-1'>
-            <div className='flex flex-col gap-16'>
+            <div className='flex flex-col gap-20'>
               {categories.map(
                 (category) =>
                   category.products.length > 0 && (

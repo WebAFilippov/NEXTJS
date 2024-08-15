@@ -9,8 +9,7 @@ interface Props {
 }
 
 export const ProductForm: React.FC<Props> = ({ product, onOpenChange, className }) => {
-  const isPizza = Boolean(product.variants[0].type)
-  console.log(isPizza)
+  const isPizza = Boolean(product.variants[0]?.size)
 
   if (isPizza) {
     return null

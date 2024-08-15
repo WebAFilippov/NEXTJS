@@ -19,7 +19,7 @@ export const Categories: React.FC<Props> = ({ categories, className }) => {
           <a
             key={id}
             className={cn(
-              'h-11 flex items-center px-5 font-bold rounded-2xl',
+              'h-11 flex items-center px-4 font-bold rounded-2xl',
               activeId === id && 'text-primary bg-white shadow-md shadow-gray-200',
               className,
             )}

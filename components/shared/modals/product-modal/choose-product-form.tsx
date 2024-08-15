@@ -1,5 +1,5 @@
 'use client'
-import { Dialog, DialogContent } from '@/components/ui'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui'
 import { ProductWithVariantsIngredients } from '@/@types'
 import { cn } from '@/shared/lib/utils'
 import { useRouter } from 'next/navigation'
@@ -16,7 +16,9 @@ export const ChooseProductForm: React.FC<Props> = ({ product, className }) => {
 
   return (
     <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
+      <DialogTitle></DialogTitle>
       <DialogContent
+        aria-describedby={undefined}
         className={cn(
           'p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden',
           className,

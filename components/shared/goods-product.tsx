@@ -16,7 +16,7 @@ export const GoodsProduct: React.FC<Props> = ({ product, onOpenChange, className
     <div className={cn(className, 'flex flex-1 h-full')}>
       <div className='flex items-center justify-center flex-1 relative w-full'>
         <img
-          src={product.imageUrl}
+          src={product.variants[0].imageUrl}
           alt={product.name}
           className='relative left-2 top-2 transition-all z-10 duration-300 w-[350px] h-[350px]'
         />
@@ -30,7 +30,7 @@ export const GoodsProduct: React.FC<Props> = ({ product, onOpenChange, className
           onClick={() => onOpenChange()}
           className='h-[55px] px-10 text-base rounded-[18px] w-full mt-10'
         >
-          Добавить в корзину за {product.variants[0].price} ₽
+          Добавить в корзину за {product.variants[0]?.price} ₽
         </Button>
       </div>
     </div>

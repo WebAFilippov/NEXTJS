@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Сорбет Лимонный фреш",
+    "description": "Цитрусовая свежесть в стаканчике. Сладкий вкус с приятной кислинкой",
+    "types": [
+      {
+        "type": 1,
+        "size": null,
+        "value": null,
+        "price": 125,
+        "elements": {
+          "energy": 109,
+          "protein": 0.3,
+          "fats": null,
+          "carbohydrate": 27,
+          "weight": 90
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EF02702EEF6FD9BB2AB771DB0535BD.avif 366w,https://media.dodostatic.net/image/r:584x584/11EF02702EEF6FD9BB2AB771DB0535BD.avif 584w,https://media.dodostatic.net/image/r:760x760/11EF02702EEF6FD9BB2AB771DB0535BD.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EF02702EEF6FD9BB2AB771DB0535BD.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Сырники с малиновым вареньем",
+    "description": "Любимый десерт многих наших гостей — румяные сырники из печи. Такие нежные, в меру сладкие и напоминающие детство",
+    "types": [
+      {
+        "type": 4,
+        "size": null,
+        "value": null,
+        "price": 295,
+        "elements": {
+          "energy": 274.1,
+          "protein": 11.7,
+          "fats": 14.3,
+          "carbohydrate": 22.6,
+          "weight": 260
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE7D61B7DE873C82A72DB3BE601BD4.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE7D61B7DE873C82A72DB3BE601BD4.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE7D61B7DE873C82A72DB3BE601BD4.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE7D61B7DE873C82A72DB3BE601BD4.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

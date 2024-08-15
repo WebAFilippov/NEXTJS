@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Омлет с ветчиной и грибами",
+    "description": "Горячий сытный омлет с поджаристой корочкой, ветчина, шампиньоны и моцарелла",
+    "types": [
+      {
+        "type": null,
+        "size": null,
+        "value": null,
+        "price": 169,
+        "elements": {
+          "energy": 197.3,
+          "protein": 15.4,
+          "fats": 13.9,
+          "carbohydrate": 1.1,
+          "weight": 110
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE7970321044479C1D1085457A36EB.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE7970321044479C1D1085457A36EB.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE7970321044479C1D1085457A36EB.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE7970321044479C1D1085457A36EB.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Омлет с беконом",
+    "description": "Классическое сочетание горячего омлета с поджаристой корочкой и бекона с добавлением моцареллы и томатов на завтрак",
+    "types": [
+      {
+        "type": null,
+        "size": null,
+        "value": null,
+        "price": 169,
+        "elements": {
+          "energy": 253.7,
+          "protein": 12.4,
+          "fats": 20.4,
+          "carbohydrate": 3.1,
+          "weight": 130
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE7970326512C89366583FF997CA9E.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE7970326512C89366583FF997CA9E.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE7970326512C89366583FF997CA9E.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE7970326512C89366583FF997CA9E.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

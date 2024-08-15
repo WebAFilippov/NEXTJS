@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Молочный коктейль Пина Колада",
+    "description": "Тропическое сочетание кокоса и ананаса в нежном милкшейке",
+    "types": [
+      {
+        "type": null,
+        "size": null,
+        "value": null,
+        "price": 215,
+        "elements": {
+          "energy": 150,
+          "protein": 3,
+          "fats": 7,
+          "carbohydrate": 17.7,
+          "weight": 300
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EEA69C98929AD79D1ADB5EF4CF22BB.avif 366w,https://media.dodostatic.net/image/r:584x584/11EEA69C98929AD79D1ADB5EF4CF22BB.avif 584w,https://media.dodostatic.net/image/r:760x760/11EEA69C98929AD79D1ADB5EF4CF22BB.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EEA69C98929AD79D1ADB5EF4CF22BB.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Шоколадный молочный коктейль",
+    "description": "Очаровательная шоколадная нежность. Попробуйте молочный коктейль с какао и мороженым",
+    "types": [
+      {
+        "type": null,
+        "size": null,
+        "value": null,
+        "price": 215,
+        "elements": {
+          "energy": 166.9,
+          "protein": 3.8,
+          "fats": 7.6,
+          "carbohydrate": 19.6,
+          "weight": 300
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE796FA24D1E919FA050D8BA21F8E9.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE796FA24D1E919FA050D8BA21F8E9.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE796FA24D1E919FA050D8BA21F8E9.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE796FA24D1E919FA050D8BA21F8E9.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

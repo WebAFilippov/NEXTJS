@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Кофе Латте",
+    "description": "Когда хочется нежную молочную пенку, на помощь приходит классический латте",
+    "types": [
+      {
+        "type": 0.4,
+        "size": null,
+        "value": null,
+        "price": 149,
+        "elements": {
+          "energy": 57.1,
+          "protein": 2.8,
+          "fats": 3.1,
+          "carbohydrate": 4.2,
+          "weight": 330
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE7D61B0C26A3F85D97A78FEEE00AD.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE7D61B0C26A3F85D97A78FEEE00AD.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE7D61B0C26A3F85D97A78FEEE00AD.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE7D61B0C26A3F85D97A78FEEE00AD.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Айс Капучино",
+    "description": "Освежающий напиток для любителей кофе. В составе эспрессо, пломбир, молоко и бодрость на весь день",
+    "types": [
+      {
+        "type": 0.3,
+        "size": null,
+        "value": null,
+        "price": 199,
+        "elements": {
+          "energy": 129.7,
+          "protein": 3.3,
+          "fats": 7.4,
+          "carbohydrate": 11.5,
+          "weight": 280
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EEFB6985E52B9FA2C985EBC42C7E64.avif 366w,https://media.dodostatic.net/image/r:584x584/11EEFB6985E52B9FA2C985EBC42C7E64.avif 584w,https://media.dodostatic.net/image/r:760x760/11EEFB6985E52B9FA2C985EBC42C7E64.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EEFB6985E52B9FA2C985EBC42C7E64.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

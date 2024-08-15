@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Какао",
+    "description": "Отправляемся в сладкое плавание в хорошей компании — горячее какао с молоком",
+    "types": [
+      {
+        "type": 0.3,
+        "size": null,
+        "value": null,
+        "price": 119,
+        "elements": {
+          "energy": 72.5,
+          "protein": 2.2,
+          "fats": 2.1,
+          "carbohydrate": 10.7,
+          "weight": 240
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE79702DC5EA0EBF92E2483DB89B11.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE79702DC5EA0EBF92E2483DB89B11.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE79702DC5EA0EBF92E2483DB89B11.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE79702DC5EA0EBF92E2483DB89B11.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Морс Черная смородина",
+    "description": "Для усиления ощущений от морса рекомендуем закрыть глаза и представить себя у бабушки в саду. Дизайн товара может отличаться",
+    "types": [
+      {
+        "type": 0.45,
+        "size": null,
+        "value": null,
+        "price": 125,
+        "elements": {
+          "energy": 36,
+          "protein": null,
+          "fats": null,
+          "carbohydrate": 9,
+          "weight": null
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EECF750FD6B61AAC7BF1E2A8935DE2.avif 366w,https://media.dodostatic.net/image/r:584x584/11EECF750FD6B61AAC7BF1E2A8935DE2.avif 584w,https://media.dodostatic.net/image/r:760x760/11EECF750FD6B61AAC7BF1E2A8935DE2.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EECF750FD6B61AAC7BF1E2A8935DE2.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

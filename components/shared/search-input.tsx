@@ -1,4 +1,5 @@
 'use client'
+import { ProductWithVariantsIngredients } from '@/@types'
 import { cn } from '@/shared/lib/utils'
 import { Api } from '@/shared/services/api-client'
 import { Product } from '@prisma/client'
@@ -14,7 +15,7 @@ interface Props {
 export const SearchInput: React.FC<Props> = ({ className }) => {
   const [searchValue, setSearchValue] = useState('')
   const [focused, setFocused] = useState(false)
-  const [products, setProducts] = useState<Product[]>([])
+  const [products, setProducts] = useState<ProductWithVariantsIngredients[]>([])
   const refInput = useRef(null)
 
   // Добавляем обработчик события клика вне компонента, чтобы при клике в любом месте,
@@ -64,12 +65,17 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
           >
             {products.map((product) => (
               <Link
-                href={`/product/${product.id}`}
+                href={`/product/${product.slug}`}
                 key={product.id}
                 className='flex items-center gap-3 hover:bg-primary/10 px-2'
                 onClick={onClickItem}
+                scroll={false}
               >
-                <img src={product.imageUrl} alt={product.name} className='size-8 rounded-sm' />
+                <img
+                  src={product.variants[0]?.imageUrl}
+                  alt={product.name}
+                  className='size-8 rounded-sm'
+                />
                 <span>{product.name}</span>
               </Link>
             ))}

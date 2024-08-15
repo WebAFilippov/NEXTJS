@@ -13,7 +13,7 @@ interface Props {
 export const Filters: React.FC<Props> = ({ className }) => {
   // api/ingredients - список ингредиентов
   const { items: filterIngredients, loading } = useFilterIndgredients()
-  const items = filterIngredients.map(({ name, id }) => ({ text: name, value: String(id) }))
+  const items = filterIngredients.map(({ name, id }) => ({ name, value: String(id) }))
 
   const { querySet: selectedTypes, toggle: toggleTypes } = useCheckboxFilter('types')
   const { querySet: selectedSizes, toggle: toggleSizes } = useCheckboxFilter('sizes')
@@ -28,25 +28,25 @@ export const Filters: React.FC<Props> = ({ className }) => {
       {/* Чекбоксы типов */}
       <FilterCheckboxGroup
         title='Тип теста:'
-        name='types'
+        titleList='types'
         onChange={toggleTypes}
         selected={selectedTypes}
         items={[
-          { text: 'Тонкое', value: '1' },
-          { text: 'Традиционное', value: '2' },
+          { name: 'Тонкое', value: '1' },
+          { name: 'Традиционное', value: '2' },
         ]}
       />
 
       {/* Чекбоксы размеров */}
       <FilterCheckboxGroup
         title='Размеры:'
-        name='sizes'
+        titleList='sizes'
         onChange={toggleSizes}
         selected={selectedSizes}
         items={[
-          { text: '20 см', value: '20' },
-          { text: '30 см', value: '30' },
-          { text: '40 см', value: '40' },
+          { name: '20 см', value: '20' },
+          { name: '30 см', value: '30' },
+          { name: '40 см', value: '40' },
         ]}
       />
 
@@ -66,7 +66,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
           <Input
             type='number'
             placeholder='1000'
-            min={100}
+            min={0}
             max={1000}
             step={10}
             value={range.priceTo}
@@ -89,7 +89,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
       <FilterCheckboxGroup
         title='Ингредиенты:'
         className='mt-5'
-        name='ingredients'
+        titleList='ingredients'
         limit={6}
         loading={loading}
         onChange={toggleIngredients}

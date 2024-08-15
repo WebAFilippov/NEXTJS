@@ -5,7 +5,7 @@ import { Input, Skeleton } from '../ui'
 
 interface Props {
   title: string
-  name: string
+  titleList: string
   items: FilterChecboxProps[]
   limit?: number
   searchInputValue?: string
@@ -17,7 +17,7 @@ interface Props {
 
 export const FilterCheckboxGroup: React.FC<Props> = ({
   title,
-  name,
+  titleList,
   items,
   limit = 5,
   searchInputValue = 'Поиск...',
@@ -31,7 +31,7 @@ export const FilterCheckboxGroup: React.FC<Props> = ({
 
   const list = showAll
     ? items.filter((item) =>
-        item.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()),
+        item.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()),
       )
     : items.slice(0, limit)
 
@@ -70,9 +70,9 @@ export const FilterCheckboxGroup: React.FC<Props> = ({
       <div className='flex flex-col gap-4 max-h-96 overflow-auto scrollbar'>
         {list.map((item, index) => (
           <FilterCheckbox
-            text={item.text}
             value={item.value}
-            name={name}
+            name={item.name}
+            titleList={titleList}
             key={index}
             endAdornment={item.endAdornment}
             checked={selected.has(item.value)}

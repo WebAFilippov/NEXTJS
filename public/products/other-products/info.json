@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Додо Клюв",
+    "description": "Если хочется перевоплощения",
+    "types": [
+      {
+        "type": "1шт",
+        "size": null,
+        "value": null,
+        "price": 10,
+        "elements": {
+          "energy": null,
+          "protein": null,
+          "fats": null,
+          "carbohydrate": null,
+          "weight": null
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE796FB007067EB2AEE8DDC23E8BBE.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE796FB007067EB2AEE8DDC23E8BBE.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE796FB007067EB2AEE8DDC23E8BBE.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE796FB007067EB2AEE8DDC23E8BBE.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Додо Колпак",
+    "description": "Цвета разные, а эмоции одни – все варианты на высоте",
+    "types": [
+      {
+        "type": "1шт",
+        "size": null,
+        "value": null,
+        "price": 10,
+        "elements": {
+          "energy": null,
+          "protein": null,
+          "fats": null,
+          "carbohydrate": null,
+          "weight": null
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE796FA8B9B8E3828E5FDBDEF24A39.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE796FA8B9B8E3828E5FDBDEF24A39.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE796FA8B9B8E3828E5FDBDEF24A39.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE796FA8B9B8E3828E5FDBDEF24A39.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

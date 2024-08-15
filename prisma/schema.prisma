@@ -39,14 +39,28 @@ model Category {
 model Product {
   id Int @id @default(autoincrement())
 
-  name     String
-  imageUrl String
-
-  variants    ProductVariant[]
-  ingredients Ingredient[]
-
-  category   Category @relation(fields: [categoryId], references: [id])
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   categoryId Int
+
+  name        String
+  slug        String  @unique
+  description String?
+
+  defaultIngredients DefaultIngredient[]
+  variants           ProductVariant[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model DefaultIngredient {
+  id Int @id @default(autoincrement())
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId Int
+
+  name    String
+  deleted Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -55,14 +69,33 @@ model Product {
 model ProductVariant {
   id Int @id @default(autoincrement())
 
-  price Int
-  size  Int?
-  type  Int?
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId Int
+
+  price       Int
+  size        String?
+  type        String?
+  imageUrl    String
+  detailInfo  DetailInfoProduct?
+  ingredients Ingredient[]
 
   basketProduct BasketProduct[]
 
-  product   Product @relation(fields: [productId], references: [id])
-  productId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model DetailInfoProduct {
+  id Int @id @default(autoincrement())
+
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productVariantId Int            @unique
+
+  energy       Float?
+  protein      Float?
+  fats         Float?
+  carbohydrate Float?
+  weight       Float?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -72,10 +105,10 @@ model Ingredient {
   id Int @id @default(autoincrement())
 
   name     String
-  imageUrl String
   price    Int
+  imageUrl String
 
-  products       Product[]
+  productVariant ProductVariant[]
   basketProducts BasketProduct[]
 
   createdAt DateTime @default(now())
@@ -85,7 +118,7 @@ model Ingredient {
 model Basket {
   id Int @id @default(autoincrement())
 
-  user   User? @relation(fields: [userId], references: [id])
+  user   User? @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId Int?  @unique
 
   products BasketProduct[]
@@ -102,7 +135,7 @@ model BasketProduct {
 
   quantity Int
 
-  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id])
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   productVariantId Int
 
   basket   Basket @relation(fields: [basketId], references: [id])
@@ -117,7 +150,7 @@ model BasketProduct {
 model Order {
   id Int @id @default(autoincrement())
 
-  user   User? @relation(fields: [userId], references: [id])
+  user   User? @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId Int?
 
   token String
@@ -143,7 +176,7 @@ model VerificationCode {
 
   code String
 
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId Int  @unique
 
   createdAt DateTime @default(now())

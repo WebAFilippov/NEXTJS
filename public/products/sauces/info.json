@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Медово-Горчичный",
+    "description": "Фирменный медово-горчичный соус со жгучей сладостью для бортиков пиццы и горячих закусок",
+    "types": [
+      {
+        "type": 1,
+        "size": null,
+        "value": null,
+        "price": 40,
+        "elements": {
+          "energy": 240,
+          "protein": 1.5,
+          "fats": 14,
+          "carbohydrate": 27,
+          "weight": 25
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EEF6672F76A11586BEB5B904E2BC44.avif 366w,https://media.dodostatic.net/image/r:584x584/11EEF6672F76A11586BEB5B904E2BC44.avif 584w,https://media.dodostatic.net/image/r:760x760/11EEF6672F76A11586BEB5B904E2BC44.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EEF6672F76A11586BEB5B904E2BC44.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  },
+  {
+    "name": "Кетчуп",
+    "description": "Фирменный кетчуп с насыщенным томатным вкусом для бортиков пиццы и горячих закусок",
+    "types": [
+      {
+        "type": 1,
+        "size": null,
+        "value": null,
+        "price": 40,
+        "elements": {
+          "energy": 110,
+          "protein": 1,
+          "fats": null,
+          "carbohydrate": 26,
+          "weight": 25
+        },
+        "image": "https://media.dodostatic.net/image/r:366x366/11EE797031797972814244D8CAEC44FE.avif 366w,https://media.dodostatic.net/image/r:584x584/11EE797031797972814244D8CAEC44FE.avif 584w,https://media.dodostatic.net/image/r:760x760/11EE797031797972814244D8CAEC44FE.avif 760w,https://media.dodostatic.net/image/r:1875x1875/11EE797031797972814244D8CAEC44FE.avif 1875w",
+        "ingredients": null
+      }
+    ]
+  }
+]

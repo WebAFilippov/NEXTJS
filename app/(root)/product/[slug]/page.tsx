@@ -3,8 +3,13 @@ import { prisma } from '@/prisma/prisma-client'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
-  const product = await prisma.product.findFirst({ where: { id: Number(id) } })
+const ProductPage = async ({ params: { slug } }: { params: { slug: string } }) => {
+  const product = await prisma.product.findFirst({
+    where: { slug: slug },
+    include: {
+      variants: true,
+    },
+  })
 
   if (!product) {
     return notFound()
@@ -13,7 +18,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <Container className='flex flex-col my-10 min-h-[500px]'>
       <div className='flex flex-1'>
-        <ProductImage imageUrl={product.imageUrl} size={20} alt={product.name} />
+        <ProductImage imageUrl={product.variants[0].imageUrl} size={20} alt={product.name} />
 
         <div className='w-[490px] bg-[#fcfcfc] p-7'>
           <Title text={product.name} size='md' className='font-extrabold mb-1' />

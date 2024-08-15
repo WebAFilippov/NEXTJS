@@ -59,9 +59,9 @@ export const ProductCard: React.FC<Props> = ({
             />
           </div>
 
-          <Title text={name} size='xs' className='font-semibold my-3 px-1' />
+          <Title text={name} size='xs' className='my-3 px-1 text-[20px] leading-6' />
 
-          <p className='text-sm text-gray-400 px-1'>
+          <p className='text-sm text-gray-500 px-1'>
             {ingredients.length > 0
               ? ingredients.map((ingredient) => ingredient.name).join(', ')
               : description}

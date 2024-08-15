@@ -1,4 +1,4 @@
-import { Container, Filters, Title, TopBar } from '@/components/shared'
+import { Container, Filters, TopBar } from '@/components/shared'
 import { ProductGroupList } from '@/components/shared/product-group-list'
 import { prisma } from '@/prisma/prisma-client'
 import { Suspense } from 'react'
@@ -15,42 +15,39 @@ export default async function Page() {
     },
   })
 
+  console.log(categories)
+
   return (
-    <>
-      <div>
-        <Container className='mt-10'>
-          <Title text='Все пиццы' size='lg' className='font-extrabold' />
-        </Container>
+    <div>
+      {/* Sticky top bar */}
+      <TopBar categories={categories.filter((category) => category.products.length > 0)} />
 
-        <TopBar categories={categories.filter((category) => category.products.length > 0)} />
+      <Container className='flex gap-10 mb-32 mt-9'>
+        {/* Filter */}
+        <div className='w-[250px]'>
+          <Suspense>
+            <Filters />
+          </Suspense>
+        </div>
 
-        <Container className='flex gap-10 pb-14 mt-9'>
-          {/* Filter */}
-          <div className='w-[250px]'>
-            <Suspense>
-              <Filters />
-            </Suspense>
+        {/* Список продуктов */}
+        <data className='flex-1'>
+          <div className='flex flex-col gap-20'>
+            {categories.map(
+              (category) =>
+                category.products.length > 0 && (
+                  <ProductGroupList
+                    key={category.id}
+                    title={category.name}
+                    categoryId={category.id}
+                    products={category.products}
+                  />
+                ),
+            )}
           </div>
-
-          {/* Список продуктов */}
-          <data className='flex-1'>
-            <div className='flex flex-col gap-20'>
-              {categories.map(
-                (category) =>
-                  category.products.length > 0 && (
-                    <ProductGroupList
-                      key={category.id}
-                      title={category.name}
-                      categoryId={category.id}
-                      products={category.products}
-                    />
-                  ),
-              )}
-            </div>
-          </data>
-        </Container>
-      </div>
-    </>
+        </data>
+      </Container>
+    </div>
   )
 }
 

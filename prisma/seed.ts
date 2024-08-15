@@ -170,126 +170,177 @@ const up = async () => {
   })
 
   // create Products
-  await prisma.product.createMany<Prisma.ProductCreateManyArgs>({
-    data: [
-      {
-        categoryId: 1,
+  const createProducts = async () => {
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 1 }] },
         name: 'Омлет с ветчиной и грибами',
         slug: slugify('Омлет с ветчиной и грибами'),
         description: 'Горячий сытный омлет с поджаристой корочкой, ветчина, шампиньоны и моцарелла',
       },
-      {
-        categoryId: 1,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 1 }] },
         name: 'Омлет с беконом',
         slug: slugify('Омлет с беконом'),
         description:
           'Классическое сочетание горячего омлета с поджаристой корочкой и бекона с добавлением моцареллы и томатов на завтрак',
       },
-      {
-        categoryId: 2,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 2 }] },
         name: 'Мясная с аджикой',
         slug: slugify('Мясная с аджикой'),
       },
-      {
-        categoryId: 2,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 2 }] },
         name: 'Аррива!',
         slug: slugify('Аррива!'),
       },
-      {
-        categoryId: 3,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 3 }] },
         name: 'Дэнвич ветчина и сыр',
         slug: slugify('Дэнвич ветчина и сыр'),
         description:
           'Поджаристая чиабатта и знакомое сочетание ветчины, цыпленка, моцареллы со свежими томатами, соусом ранч и чесноком',
       },
-      {
-        categoryId: 3,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 3 }] },
         name: 'Супермясной Додстер',
         slug: slugify('Супермясной Додстер'),
         description:
           'Горячая закуска с цыпленком, моцареллой, митболами, острыми колбасками чоризо и соусом бургер в тонкой пшеничной лепешке',
       },
-      {
-        categoryId: 4,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 4 }] },
         name: 'Молочный коктейль Пина Колада',
         slug: slugify('Молочный коктейль Пина Колада'),
         description: 'Тропическое сочетание кокоса и ананаса в нежном милкшейке',
       },
-      {
-        categoryId: 4,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 1 }, { id: 4 }] },
         name: 'Шоколадный молочный коктейль',
         slug: slugify('Шоколадный молочный коктейль'),
         description:
           'Очаровательная шоколадная нежность. Попробуйте молочный коктейль с какао и мороженым',
       },
-      {
-        categoryId: 5,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 1 }, { id: 5 }] },
         name: 'Кофе Латте',
         slug: slugify('Кофе Латте'),
         description: 'Когда хочется нежную молочную пенку, на помощь приходит классический латте',
       },
-      {
-        categoryId: 5,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 1 }, { id: 5 }] },
         name: 'Айс Капучино',
         slug: slugify('Айс Капучино'),
         description:
           'Освежающий напиток для любителей кофе. В составе эспрессо, пломбир, молоко и бодрость на весь день',
       },
-      {
-        categoryId: 6,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 1 }, { id: 6 }] },
         name: 'Какао',
         slug: slugify('Какао'),
         description: 'Отправляемся в сладкое плавание в хорошей компании — горячее какао с молоком',
       },
-      {
-        categoryId: 6,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 6 }] },
         name: 'Морс Черная смородина',
         slug: slugify('Морс Черная смородина'),
         description:
           'Для усиления ощущений от морса рекомендуем закрыть глаза и представить себя у бабушки в саду. Дизайн товара может отличаться',
       },
-      {
-        categoryId: 7,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 7 }] },
         name: 'Сорбет Лимонный фреш',
         slug: slugify('Сорбет Лимонный фреш'),
         description: 'Цитрусовая свежесть в стаканчике. Сладкий вкус с приятной кислинкой',
       },
-      {
-        categoryId: 7,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 1 }, { id: 7 }] },
         name: 'Сырники с малиновым вареньем',
         slug: slugify('Сырники с малиновым вареньем'),
         description:
           'Любимый десерт многих наших гостей — румяные сырники из печи. Такие нежные, в меру сладкие и напоминающие детство',
       },
-      {
-        categoryId: 8,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 8 }] },
         name: 'Медово-Горчичный',
         slug: slugify('Медово-Горчичный'),
         description:
           'Фирменный медово-горчичный соус со жгучей сладостью для бортиков пиццы и горячих закусок',
       },
-      {
-        categoryId: 8,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 8 }] },
         name: 'Кетчуп',
         slug: slugify('Кетчуп'),
         description:
           'Фирменный кетчуп с насыщенным томатным вкусом для бортиков пиццы и горячих закусок',
       },
-      {
-        categoryId: 9,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 9 }] },
         name: 'Додо Клюв',
         slug: slugify('Додо Клюв'),
         description: 'Если хочется перевоплощения',
       },
-      {
-        categoryId: 9,
+    })
+
+    await prisma.product.create({
+      data: {
+        category: { connect: [{ id: 9 }] },
         name: 'Додо Колпак',
         slug: slugify('Додо Колпак'),
         description: 'Цвета разные, а эмоции одни – все варианты на высоте',
       },
-    ],
-    skipDuplicates: true,
-  })
+    })
+  }
+  await createProducts()
 
   // create DefaultVariants for Pizza
   await prisma.defaultIngredient.createMany<Prisma.DefaultIngredientCreateManyArgs>({

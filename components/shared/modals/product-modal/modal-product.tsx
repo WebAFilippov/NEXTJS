@@ -18,8 +18,8 @@ export const ModalProduct: React.FC<Props> = ({ product, className }) => {
   const isPizza = Boolean(product.variants[0]?.size)
 
   const onOpenChangeModal = () => {
-    router.back()
     setOpenModal(false)
+    router.back()
   }
 
   return (

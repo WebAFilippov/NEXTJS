@@ -2,6 +2,7 @@
 import localFont from 'next/font/local'
 
 import './globals.css'
+import { cn } from '@/shared/lib'
 
 // const NunitoFont = Nunito({
 //   subsets: ['cyrillic'],
@@ -10,10 +11,23 @@ import './globals.css'
 // })
 
 const Dodo = localFont({
-  src: [
-    {
-      path: './fonts/Blogger_Sans.otf',
-    },
+  src: './fonts/Dodo.woff2',
+  variable: '--font-dodo',
+  fallback: [
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Oxygen-Sans',
+    'Ubuntu',
+    'Cantarell',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
   ],
 })
 
@@ -27,7 +41,7 @@ export default function ProjectLoyout({
       <head>
         <link data-rh='true' rel='icon' href='/logo.png' />
       </head>
-      <body className={Dodo.className}>{children}</body>
+      <body className={cn(Dodo.className, Dodo.variable)}>{children}</body>
     </html>
   )
 }

@@ -1,5 +1,5 @@
 import { Container, Filters, TopBar } from '@/components/shared'
-import { ProductGroupList } from '@/components/shared/product-group-list'
+import { ProductGroupList } from '@/components/shared/product'
 import { prisma } from '@/prisma/prisma-client'
 import { Suspense } from 'react'
 
@@ -15,12 +15,10 @@ export default async function Page() {
     },
   })
 
-  console.log(categories)
-
   return (
     <div>
       {/* Sticky top bar */}
-      <TopBar categories={categories.filter((category) => category.products.length > 0)} />
+      <TopBar categories={categories.filter(({ products }) => products.length > 0)} />
 
       <Container className='flex gap-10 mb-32 mt-9'>
         {/* Filter */}
@@ -32,7 +30,7 @@ export default async function Page() {
 
         {/* Список продуктов */}
         <data className='flex-1'>
-          <div className='flex flex-col gap-20'>
+          <div className='flex flex-col gap-[60px]'>
             {categories.map(
               (category) =>
                 category.products.length > 0 && (

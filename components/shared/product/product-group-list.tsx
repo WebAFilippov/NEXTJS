@@ -1,11 +1,11 @@
 'use client'
-
 import React, { useEffect, useRef } from 'react'
-import { ProductCard, Title } from '@/components/shared'
+import { Title } from '@/components/shared'
 import { cn } from '@/shared/lib/utils'
 import { useIntersection } from 'react-use'
 import { setActiveId } from '@/shared/store/category'
 import { ProductWithVariantsIngredients } from '@/@types'
+import { ProductCard } from './product-card'
 
 interface Props {
   title: string
@@ -29,10 +29,13 @@ export const ProductGroupList: React.FC<Props> = ({ title, products, categoryId,
   }, [intersection?.isIntersecting, categoryId])
 
   return (
-    <section className={cn('flex flex-col gap-10', className)} ref={intersectionRef} id={title}>
-      <Title text={title} className='font-semibold text-[36px] leading-[50px] text-black w-full' />
+    <section className={cn('flex flex-col', className)} ref={intersectionRef} id={title}>
+      <Title
+        text={title}
+        className='font-semibold text-[36px] leading-[50px] text-black w-full my-8'
+      />
 
-      <div className='grid grid-cols-3 gap-14'>
+      <div className='grid grid-cols-3 gap-x-8 gap-y-[60px]'>
         {products?.map((product) => (
           <ProductCard
             key={product.id}

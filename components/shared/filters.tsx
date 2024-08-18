@@ -22,7 +22,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
   const { range, setRange } = useRangeFilter()
 
   return (
-    <div className={className}>
+    <div>
       <Title text='Фильтрация' size='sm' className='font-bold mb-5' />
 
       {/* Чекбоксы типов */}

@@ -2,6 +2,7 @@
 import { cn } from '@/shared/lib/utils'
 import { useCategoryStore } from '@/shared/store/category'
 import { Category } from '@prisma/client'
+import Link from 'next/link'
 import React from 'react'
 
 interface Props {
@@ -16,7 +17,7 @@ export const Categories: React.FC<Props> = ({ categories, className }) => {
     <>
       <div className='inline-flex rounded-2xl gap-1 bg-gray-50 p-1'>
         {categories.map(({ id, name }) => (
-          <a
+          <Link
             key={id}
             className={cn(
               'h-11 flex items-center px-4 font-bold rounded-2xl',
@@ -26,7 +27,7 @@ export const Categories: React.FC<Props> = ({ categories, className }) => {
             href={`/#${name}`}
           >
             <button>{name}</button>
-          </a>
+          </Link>
         ))}
       </div>
     </>

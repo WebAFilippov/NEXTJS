@@ -17,19 +17,19 @@ interface Props {
 
 export const ProductGroupList: React.FC<Props> = ({ title, products, categoryId, className }) => {
   // Отслеживания положения экрана и отображение active в category Topbar
-  const intersectionRef = useRef(null)
-  const intersection = useIntersection(intersectionRef, {
-    threshold: 0.4,
-  })
+  // const intersectionRef = useRef(null)
+  // const intersection = useIntersection(intersectionRef, {
+  //   threshold: 0.4,
+  // })
 
-  useEffect(() => {
-    if (intersection?.isIntersecting) {
-      setActiveId(categoryId)
-    }
-  }, [intersection?.isIntersecting, categoryId])
+  // useEffect(() => {
+  //   if (intersection?.isIntersecting) {
+  //     setActiveId(categoryId)
+  //   }
+  // }, [intersection?.isIntersecting, categoryId])
 
   return (
-    <section className={cn('flex flex-col', className)} ref={intersectionRef} id={title}>
+    <section className={cn('flex flex-col', className)} id={title}>
       <Title
         text={title}
         className='font-semibold text-[36px] leading-[50px] text-black w-full my-8'

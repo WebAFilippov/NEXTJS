@@ -35,6 +35,7 @@ export const ProductCard: React.FC<Props> = ({
       <Link
         href={`product/${slug}`}
         scroll={false}
+        prefetch={true}
         className='group flex flex-col justify-between h-full'
       >
         <div>
